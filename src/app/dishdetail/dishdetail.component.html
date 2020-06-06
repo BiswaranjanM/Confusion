@@ -24,40 +24,15 @@
   </div>
 
   <div fxFlex="40">
-    <div fxFlex *ngIf="dish">  
-        <mat-card>
-            <mat-card-header>
-                <mat-card-title>
-                    <h3><b>Comments</b></h3>
-                </mat-card-title>
-            </mat-card-header><br>
-            <mat-list >
-      
-                <mat-list-item >
-          
-                    
-                 <h1 matLine > {{dish.comments[0].comment}} </h1>
-                 <h1 matLine> {{dish.comments[0].rating}} stars </h1>
-                 <h1 matLine> -- {{dish.comments[0].author}} {{dish.comments[0].date| date:"MMM d, y"}}</h1>
-                 <br>
-                 <h1 matLine > {{dish.comments[1].comment}} </h1>
-                 <h1 matLine> {{dish.comments[1].rating}} stars </h1>
-                 <h1 matLine> -- {{dish.comments[1].author}} {{dish.comments[1].date| date:"MMM d, y"}}</h1>
-                 <br>
-                 <h1 matLine > {{dish.comments[2].comment}} </h1>
-                 <h1 matLine> {{dish.comments[2].rating}} stars </h1>
-                 <h1 matLine> -- {{dish.comments[2].author}} {{dish.comments[2].date| date:"MMM d, y"}}</h1>
-                 <br>
-                 <h1 matLine > {{dish.comments[3].comment}} </h1>
-                 <h1 matLine> {{dish.comments[3].rating}} stars </h1>
-                 <h1 matLine> -- {{dish.comments[3].author}} {{dish.comments[3].date| date:"MMM d, y"}}</h1>
-                 <br>
-                 <h1 matLine > {{dish.comments[4].comment}} </h1>
-                 <h1 matLine> {{dish.comments[4].rating}} stars </h1>
-                 <h1 matLine> -- {{dish.comments[4].author}} {{dish.comments[4].date| date:"MMM d, y"}}</h1>
-                        
-                </mat-list-item>
-            </mat-list>
-        </mat-card>
-    </div>
+    <mat-list  *ngIf="dish">
+      <h3>Comments</h3>
+      <mat-list-item *ngFor="let comment of dish.comments">  
+        <h4 matLine>{{comment.comment}}</h4>
+        <p matLine>{{comment.rating}} Stars</p>
+        <p matLine>
+          <span>-- {{comment.author}} {{comment.date| date:"MMM d, y"}}</span>
+        </p>
+      </mat-list-item>
+    </mat-list>
+  </div>
 </div>

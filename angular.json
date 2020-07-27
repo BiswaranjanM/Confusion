@@ -127,5 +127,10 @@
       }
     }
   },
-  "defaultProject": "confusion"
+  "defaultProject": "confusion",
+  "schematics": {
+    "@nrwl/schematics:component": {
+      "styleext": "scss"
+    }
+  }
 }

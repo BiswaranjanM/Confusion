@@ -53,7 +53,7 @@ const DISH = {
 export class DishdetailComponent implements OnInit {
   @Input()
     dish = DISH;
-  comments= this.dish.comments
+  
   constructor() { }
 
   ngOnInit(): void {

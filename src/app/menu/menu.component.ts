@@ -1,8 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import {Dish} from '../shared/dish'
 
-import {Dish} from '../shared/dish';
-import { DISHES } from '../shared/dishes';
-
+import { DishService } from '../services/dish.service';
 
 @Component({
   selector: 'app-menu',
@@ -11,11 +10,11 @@ import { DISHES } from '../shared/dishes';
 })
 export class MenuComponent implements OnInit {
   
-  dishes: Dish[] = DISHES;
+  dishes: Dish[] ;
   selectedDish:Dish;
-   constructor() { }
-   ngOnInit(): void {
-     throw new Error("Method not implemented.");
+   constructor(private dishService: DishService) { }
+   ngOnInit() {
+    this.dishes = this.dishService.getDishes()
    }
    onSelect(dish: Dish) {
     this.selectedDish = dish;
